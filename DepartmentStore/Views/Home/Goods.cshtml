@@ -1,0 +1,28 @@
+﻿
+@model IEnumerable<ProductInfo>
+<h3>Товары</h3>
+<table>
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Описание
+        </th>
+
+    </tr>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelProduct => product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelUser => product.description)
+            </td>
+
+        </tr>
+    }
+</table>
+

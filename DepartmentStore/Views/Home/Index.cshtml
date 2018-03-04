@@ -1,0 +1,33 @@
+﻿@*@{
+    ViewBag.Title = "Home Page";
+}*@
+@model IEnumerable<ShopInfo>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <table>
+        <tr class="header">
+            <td><p><b>Название магазина<b></p></td>
+            <td><p>Расписание<p></td>
+            <td><p>Адрес<p></td>
+            <td><p>Товары<p></td>
+        </tr>
+         @foreach (var b in Model)
+        {
+                    <tr>
+                        <td><p>@b.Name</p></td>
+                        <td><p>@b.mode</p></td>
+                        <td><p>@b.address</p></td>
+                    <td id="goods">
+                        <p>
+                            @Ajax.ActionLink("Посмотреть", "Goods",new {id=b.shop_Id},
+                                 new AjaxOptions { UpdateTargetId = "goods" })
+
+                        <p>
+                    </td>           
+            </tr>
+        }
+    </table>
+</div>
